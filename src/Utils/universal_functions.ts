@@ -27,8 +27,6 @@ const send_success = (success_msg, response) => {
 
 const send_error = (error_msg, reply) => {
 
-      
-
       if(error_msg.hasOwnProperty('status_code') && error_msg.hasOwnProperty('custom_msg')) {
 
             let message = new Error(error_msg.custom_msg);
@@ -37,7 +35,6 @@ const send_error = (error_msg, reply) => {
             return error
 
       }else {
-            console.log("------------------------error_msg---",error_msg)
 
             let message = new Error(error_msg);
             let options = { statusCode : 400 }
