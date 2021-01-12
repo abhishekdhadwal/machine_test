@@ -1,7 +1,8 @@
-import Joi from 'joi';
-import { admin_controller } from '../../Controller/index';
-import { success_msg, app_constansts } from '../../Config/index';
-import { universal_functions } from '../../Utils/index';
+
+import { admin_controller } from '../Controller/index';
+import { success_msg, app_constansts } from '../Config/index';
+import { universal_functions } from '../Utils/index';
+import { admin_validator, header } from '../validators/index';
 const scope = app_constansts.scope;
 
 
@@ -21,10 +22,7 @@ const login_options = {
             });
       },
       validate : {
-            payload : Joi.object({
-                    email : Joi.string().email().required().description("Enter your Email Address"),
-                    password : Joi.string().required().description("Enter your Password")
-              }),
+            payload : admin_validator.admin_login,
             failAction : 'error'
       }
 }
@@ -45,7 +43,7 @@ const access_token_login_options = {
             });
       },
       validate : {
-            headers : Joi.object({ authorization : Joi.string().required() }).options({ allowUnknown: true }),
+            headers : header,
             failAction : 'error'
       }
 }

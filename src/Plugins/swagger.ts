@@ -30,3 +30,5 @@ const plugins: Array<Hapi.ServerRegisterPluginObject<any>> = [
 
 
 export default plugins
+
+
