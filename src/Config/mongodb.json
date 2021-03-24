@@ -1,7 +1,0 @@
-{
-	"host": "localhost",
-	"port": "1414",
-	"mongoDb": {
-		"URI" : "mongodb://localhost:27017/base_project_hapi_ts"
-	}
-}

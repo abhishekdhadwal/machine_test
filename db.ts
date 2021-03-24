@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
-import mongo from './src/Config/mongodb.json';
+import { db_config } from './src/Config/index';
 
 const connect_to_db = async() => {
 
-      let fetch_url = mongo.mongoDb.URI
+      let fetch_url = db_config.URI
       let options = {
             useNewUrlParser : true, 
             useUnifiedTopology : true, 
