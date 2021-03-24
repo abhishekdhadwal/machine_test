@@ -1,6 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import * as DAO from "../DAO";
 import * as Models from '../Models';
+import { universal_functions } from '../Utils/index';
 import { error_msg, app_constansts } from '../Config/index';
 
 const sk = app_constansts.seckret_keys;
@@ -52,7 +53,7 @@ const verify_token = async (token : any) => {
                   fetch_data = await DAO.get_data(Models.Admin, query, projection, options)
             }
             
-            if(fetch_data.length == 0) { throw error_msg.unauthorized }
+            if(fetch_data.length == 0) { throw universal_functions.send_error(error_msg.unauthorized, null) }
             else { 
                   return { 
                         isValid : true,
