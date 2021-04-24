@@ -1,8 +1,10 @@
+
 import * as DAO from '../DAO/index';
 import * as Models from '../Models/index';
 import { error_msg, app_constansts } from '../Config/index';
 import { common_controller }  from './index';
 const scope = app_constansts.scope;
+
 
 const login = async(payloadData : any) => {
       try {
@@ -22,14 +24,10 @@ const login = async(payloadData : any) => {
                   }else {
 
                         // generate token 
-                        let token_data = { 
-                              _id : fetch_data[0]._id,
-                              scope : scope.admin,
-                              collection : Models.Admin,
-                              token_gen_at : +new Date()
-                        }
+                        let token_data = await common_controller.admin_token_data(fetch_data)
                         let get_token = await common_controller.fetch_token(token_data)
                         return get_token
+
                   }
 
             }else {
@@ -42,7 +40,7 @@ const login = async(payloadData : any) => {
       }
 }
 
-const access_token_login = async(userData) => {
+const access_token_login = async(userData : any) => {
       try {
             
             return userData;
