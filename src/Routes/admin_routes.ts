@@ -38,9 +38,9 @@ const admin_login = {
       }
 }
 
-const access_token_login_options = {
+const access_token_login = {
       method : "GET",
-      path : "/Admin/Login",
+      path : "/Admin/access_token_login",
       options : {
             description : "Access Token Login Api",
             auth : { strategies : [ scope.admin ] },
@@ -65,5 +65,5 @@ const access_token_login_options = {
 
 export {
       admin_login,
-      access_token_login_options
+      access_token_login
 }
