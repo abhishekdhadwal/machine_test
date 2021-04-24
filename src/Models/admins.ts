@@ -1,13 +1,16 @@
-import * as Mongoose from 'ts-mongoose';
 
-const AdminSchema = Mongoose.createSchema({
-      access_token : { type : String, default : null },
-      email : { type : String, default : null },
-      password : { type : String, default : null },
-      token_gen_at : { type : String, default : null },
-      created_at : { type : String, default : +new Date() },
+import { createSchema, Type, typedModel } from 'ts-mongoose';
+
+const AdminSchema = createSchema({
+
+      access_token : Type.string({ default : null }), 
+      email : Type.string({ default : null }), 
+      password : Type.string({ default : null }), 
+      token_gen_at : Type.string({ default : null }), 
+      created_at : Type.string({ default : +new Date() })
+
 })
 
-const Admin = Mongoose.typedModel('admins', AdminSchema);
+const Admin = typedModel('admins', AdminSchema);
 
 export default Admin
