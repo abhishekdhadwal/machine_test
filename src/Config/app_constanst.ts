@@ -7,10 +7,14 @@ const scope = {
       admin : "admin"
 }
 
+const default_limit = 10;
+const default_otp = 1234;
 
 export {
       seckret_keys,
-      scope
+      scope,
+      default_limit,
+      default_otp
 }
 
 

@@ -9,13 +9,13 @@ const scope = app_constansts.scope;
 const options = { algorithm : "HS256" };
 
 
-// STEP 1 : GENERATE TOKEN
+// step 1 : generate token
 const generate_token = (token_data : any) => {
 
       return new Promise((resolve, reject) => {
             try {
 
-                  let seckret_key = "my_secret_key";
+                  let seckret_key = null;
                   if(token_data.scope == scope.admin) { seckret_key = sk.admin_seckret_key }
 
                   const token = jwt.sign(token_data, seckret_key, options)
@@ -29,16 +29,11 @@ const generate_token = (token_data : any) => {
 
 }
 
-// STEP 2 : VERIFY TOKEN
+// step 2 : verify token
 const verify_token = async (token : any) => {
       try {
 
             let decoded = token;
-            // if(token.scope == scope.admin) { decoded = jwt.verify(token, sk.admin_seckret_key) }
-            // else if(token.scope == scope.work_provider) { decoded = jwt.verify(token, sk.wp_seckret_key) }
-            // else if(token.scope == scope.data_expert) { decoded = jwt.verify(token, sk.de_seckret_key) }
-
-            // console.log("----------------------decoded---",decoded)
 
             let query : any = { 
                   _id : decoded._id, 

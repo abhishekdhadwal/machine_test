@@ -12,7 +12,7 @@ let no_data_found = {
 }
 
 let invalid_credentials = {
-      status_code : 400,
+      status_code : 401,
       custom_msg : 'Inavalid login details',
       type : 'invalid_credentials'
 }
