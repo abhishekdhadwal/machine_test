@@ -7,7 +7,8 @@ const connect_to_db = async() => {
       let options = {
             useNewUrlParser : true, 
             useUnifiedTopology : true, 
-            useFindAndModify: false
+            useFindAndModify: false,
+            useCreateIndex : true
       }
 
       mongoose.connect(fetch_url, options);
