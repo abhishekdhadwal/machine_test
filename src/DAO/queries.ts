@@ -134,7 +134,7 @@ const count_data = (model : any, query : any) => {
     return new Promise((resolve, reject) => {
         try {
 
-            let fetch_data = model.count(query);
+            let fetch_data = model.countDocuments(query);
             return resolve(fetch_data);
 
         } catch (err) {
