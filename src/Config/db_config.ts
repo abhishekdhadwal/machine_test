@@ -7,7 +7,7 @@ let db_config : any = {}
 if(process.env.NODE_ENV == 'local') {
       
       db_config = {
-            PORT : 2030,
+            PORT : process.env.SERVER_PORT_DEV,
             URI : 'mongodb://localhost:27017/base_project_hapi_ts'    
       }
 
@@ -15,7 +15,7 @@ if(process.env.NODE_ENV == 'local') {
 else if(process.env.NODE_ENV == 'server') {
 
       db_config = {
-            PORT : 2030,
+            PORT : process.env.SERVER_PORT_PROD,
             URI : 'mongodb://localhost:27017/base_project_hapi_ts'    
       }
 
