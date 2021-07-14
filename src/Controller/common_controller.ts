@@ -28,7 +28,7 @@ const fetch_token = async(function_data : any) => {
       }
 }
 
-const admin_token_data = async(data : any) => {
+const gen_admin_token = async(data : any) => {
       try {
 
             let token_data = { 
@@ -38,7 +38,45 @@ const admin_token_data = async(data : any) => {
                   token_gen_at : +new Date()
             }
 
-            return token_data
+            let response = await fetch_token(token_data)
+
+            return response
+
+      }
+      catch(err) {
+            throw err;
+      }
+}
+
+const gen_user_token = async(data : any) => {
+      try {
+
+            let token_data = { 
+                  _id : data._id,
+                  scope : scope.user,
+                  collection : Models.Users,
+                  token_gen_at : +new Date()
+            }
+
+            let response = await fetch_token(token_data)
+
+            return response
+
+      }
+      catch(err) {
+            throw err;
+      }
+}
+
+
+const check_user_email = async(email : string) => {
+      try {
+
+            let query = { email : email }
+            let projection = { __v : 0 }
+            let options = { lean : true }
+            let response = await DAO.get_data(Models.Users, query, projection, options)
+            return response
 
       }
       catch(err) {
@@ -49,5 +87,7 @@ const admin_token_data = async(data : any) => {
 
 export {
       fetch_token,
-      admin_token_data
+      gen_admin_token,
+      gen_user_token,
+      check_user_email
 }

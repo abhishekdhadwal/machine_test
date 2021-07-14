@@ -11,11 +11,19 @@ const admin = {
       verifyOptions : { algorithms: [ 'HS256' ], ignoreExpiration : false }
 }
 
+
+const user = {
+      key : sk.user_seckret_key,
+      validate : verify_token,
+      verifyOptions : { algorithms: [ 'HS256' ], ignoreExpiration : false }
+}
+
 exports.plugin = {
       name: 'auth',
       register: async (server, options) => {
                await server.register(require('hapi-auth-jwt2'));
                server.auth.strategy(scope.admin, 'jwt', admin);
+               server.auth.strategy(scope.user, 'jwt', user);
                server.auth.default(scope.admin);
       }
 }

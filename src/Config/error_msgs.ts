@@ -35,11 +35,18 @@ let data_already_exists = {
       type : 'data_already_exists'
 }
 
+let email_already_exists = {
+      status_code : 400,
+      custom_msg : 'This email address, alreday exists please try agian',
+      type : 'email_already_exists'
+}
+
 export {
       default_msg,
       no_data_found,
       invalid_credentials,
       invalid_password,
       unauthorized,
-      data_already_exists
+      data_already_exists,
+      email_already_exists
 }

@@ -17,6 +17,7 @@ const generate_token = (token_data : any) => {
 
                   let seckret_key = null;
                   if(token_data.scope == scope.admin) { seckret_key = sk.admin_seckret_key }
+                  if(token_data.scope == scope.user) { seckret_key = sk.user_seckret_key }
 
                   const token = jwt.sign(token_data, seckret_key, options)
                   return resolve(token);
@@ -47,7 +48,10 @@ const verify_token = async (token : any) => {
             if(decoded.scope == scope.admin) {
                   fetch_data = await DAO.get_data(Models.Admin, query, projection, options)
             }
-            
+            if(decoded.scope == scope.user) {
+                  fetch_data = await DAO.get_data(Models.Users, query, projection, options)
+            }            
+
             if(fetch_data.length == 0) { throw universal_functions.send_error(error_msg.unauthorized, null) }
             else { 
                   return { 

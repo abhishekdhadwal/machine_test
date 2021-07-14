@@ -24,9 +24,8 @@ const login = async(payloadData : any) => {
                   }else {
 
                         // generate token 
-                        let token_data = await common_controller.admin_token_data(fetch_data)
-                        let get_token = await common_controller.fetch_token(token_data)
-                        return get_token
+                        let response = await common_controller.gen_admin_token(fetch_data)
+                        return response
 
                   }
 

@@ -1,9 +1,10 @@
 
 import { createSchema, Type, typedModel } from 'ts-mongoose';
 
-const AdminSchema = createSchema({
+const UserSchema = createSchema({
 
-      access_token : Type.string({ default : null }), 
+      access_token : Type.string({ default : null }),
+      name :  Type.string({ default : null }),
       email : Type.string({ default : null }), 
       password : Type.string({ default : null }), 
       token_gen_at : Type.number({ default : 0 }), 
@@ -11,6 +12,5 @@ const AdminSchema = createSchema({
 
 })
 
-const Admin = typedModel('admins', AdminSchema);
-
-export default Admin
+const Users = typedModel('users', UserSchema);
+export default Users
