@@ -10,7 +10,8 @@ const swaggerOptions: HapiSwagger.RegisterOptions = {
   info: {
       title: 'Base Project With Hapi Ts Documentation',
       version : Pack.version
-  }
+  },
+  'schemes': [ 'http', 'https' ]
 };
 
 const plugins: Array<Hapi.ServerRegisterPluginObject<any>> = [
