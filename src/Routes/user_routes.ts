@@ -63,8 +63,9 @@ const login = {
 }
 
 
-
-export {
+const user_routes = [
    signup,
    login
-}
+]
+
+export default user_routes

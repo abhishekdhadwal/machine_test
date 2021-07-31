@@ -1,6 +1,7 @@
 
 import * as DAO from './src/DAO/index';
 import * as Models from './src/Models/index';
+import { common_controller } from './src/Controller/index'
 
 const create_admin = async() => {
       try {
@@ -13,23 +14,26 @@ const create_admin = async() => {
         
         if(fetch_data.length == 0) {
 
+            let default_password = 'qwerty';
+            let password = await common_controller.bcrypt_password(default_password)
+
             // create admin  
             let save_data = [
                   {
                         email : "admin@gmail.com",
-                        password : "qwerty"
+                        password : password
                   },
                   {
                         email : "admin_1@gmail.com",
-                        password : "qwerty"
+                        password : password
                   },
                   {
                         email : "admin_2@gmail.com",
-                        password : "qwerty"
+                        password : password
                   },
                   {
                         email : "abd@yopmail.com",
-                        password : "qwerty"
+                        password : password
                   }
             ]
 

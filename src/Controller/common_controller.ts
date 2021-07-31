@@ -3,8 +3,10 @@ import * as DAO from '../DAO/index';
 import * as Models from '../Models/index';
 import { error_msg, app_constansts } from '../Config/index';
 import { generate_token } from '../Libs/index';
-const scope = app_constansts.scope;
+import bcrypt from 'bcrypt';
 
+const scope = app_constansts.scope;
+const salt_rounds = app_constansts.salt_rounds
 
 
 const fetch_token = async(function_data : any) => {
@@ -84,10 +86,35 @@ const check_user_email = async(email : string) => {
       }
 }
 
+const bcrypt_password = async(password : string) => {
+      try {
+
+            const hash = await bcrypt.hashSync(password, salt_rounds);
+            return hash
+
+      }
+      catch(err) {
+            throw err;
+      }
+}
+
+const decrypt_password = async(password : string, hash : string) => {
+      try {
+
+            const decryt = await bcrypt.compareSync(password, hash); 
+            return decryt
+
+      }
+      catch(err) {
+            throw err;
+      }
+}
 
 export {
       fetch_token,
       gen_admin_token,
       gen_user_token,
-      check_user_email
+      check_user_email,
+      bcrypt_password,
+      decrypt_password
 }

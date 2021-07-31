@@ -7,6 +7,11 @@
             "sourceMap": true,
             "module": "commonjs",
             "moduleResolution": "node",
-      }
+            "outDir": "build"
+      },
+      "exclude": [
+            "node_modules"
+      ]
+      
 }
 

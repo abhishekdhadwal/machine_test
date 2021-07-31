@@ -62,8 +62,9 @@ const access_token_login = {
       }
 }
 
-
-export {
+const admin_routes = [
       admin_login,
       access_token_login
-}
+]
+
+export default admin_routes

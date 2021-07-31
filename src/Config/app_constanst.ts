@@ -11,12 +11,14 @@ const scope = {
 
 const default_limit = 10;
 const default_otp = 1234;
+const salt_rounds = 10;
 
 export {
       seckret_keys,
       scope,
       default_limit,
-      default_otp
+      default_otp,
+      salt_rounds
 }
 
 

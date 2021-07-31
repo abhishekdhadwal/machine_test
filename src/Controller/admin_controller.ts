@@ -16,12 +16,11 @@ const login = async(payloadData : any) => {
             
             if(fetch_data.length) {
 
-                  let password_1 = fetch_data[0].password
-                  let password_2 = payloadData.password
+                  let password = fetch_data[0].password
+                  let decrypt = await common_controller.decrypt_password(payloadData.password, password)
 
-                  if(password_1 != password_2) {
-                        throw error_msg.invalid_password;
-                  }else {
+                  if(decrypt != true) { throw error_msg.invalid_password }
+                  else {
 
                         // generate token 
                         let response = await common_controller.gen_admin_token(fetch_data)
