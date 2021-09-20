@@ -1,7 +1,7 @@
 {
-  "name": "base_project_hapi_ts",
+  "name": "machine_test",
   "version": "1.0.0",
-  "description": "base project with hapi framework and typescript",
+  "description": "machine test",
   "main": "server.ts",
   "scripts": {
     "start": "ts-node server.ts",
@@ -11,17 +11,15 @@
   "author": "Abhishek Dhadwal",
   "license": "ISC",
   "dependencies": {
-    "@hapi/boom": "^9.1.3",
+    "@hapi/boom": "^9.1.4",
     "@hapi/hapi": "^20.1.5",
-    "@hapi/inert": "^6.0.3",
+    "@hapi/inert": "^6.0.4",
     "@hapi/vision": "^6.1.0",
-    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "hapi-auth-jwt2": "^10.2.0",
     "inert": "^5.1.3",
     "joi": "^17.4.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.11",
+    "mongoose": "^5.13.9",
     "ts-mongoose": "0.0.24",
     "vision": "^5.4.4"
   },
@@ -30,7 +28,7 @@
     "@types/hapi__inert": "^5.2.3",
     "@types/hapi__joi": "^17.1.7",
     "@types/hapi__vision": "^5.5.3",
-    "@types/node": "^16.6.0",
+    "@types/node": "^16.9.4",
     "hapi-swagger": "^14.2.4"
   }
 }

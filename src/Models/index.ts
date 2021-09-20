@@ -1,8 +1,6 @@
 
-import Admin from './admins';
-import Users from './users'
+import Tasks from './tasks';
 
 export {
-      Admin,
-      Users
+      Tasks
 }

@@ -1,5 +1,5 @@
 import * as Hapi from '@hapi/hapi';
-import {swaggger_plugin, plugin_auth} from './src/Plugins/index';
+import { swaggger_plugin } from './src/Plugins/index';
 import connect_to_db from './db';
 import bootstrap_data from './bootstrap';
 import { config } from 'dotenv';
@@ -23,12 +23,11 @@ const init = async () => {
       });
 
       await server.register(swaggger_plugin); 
-      await server.register(plugin_auth); 
       await server.route(Routes);
       await server.start();
       console.log(`Server running on ${server.info.uri}/documentation`);
       await connect_to_db();
-      await bootstrap_data();
+      // await bootstrap_data();
 
 };
 

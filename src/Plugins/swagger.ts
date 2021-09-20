@@ -8,7 +8,7 @@ import Pack from '../../package.json'
 
 const swaggerOptions: HapiSwagger.RegisterOptions = {
   info: {
-      title: 'Base Project With Hapi Ts Documentation',
+      title: 'Machine Test Documentation',
       version : Pack.version
   },
   'schemes': [ 'http', 'https' ]
