@@ -1,6 +1,6 @@
 
-import admin_routes  from './admin_routes';
+import task_routes  from './task_routes';
 
-const router : any = [ ...admin_routes ]
+const router : any = [ ...task_routes ]
 
 export default router

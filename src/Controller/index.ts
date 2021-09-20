@@ -1,6 +1,6 @@
 
-import * as admin_controller from './admin_controller';
+import * as task_controller from './task_controller';
 
 export { 
-      admin_controller
+      task_controller
  }

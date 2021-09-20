@@ -1,10 +1,6 @@
 
-import { header } from './headers';
-import * as admin_validator from './admin_validator'
-import * as user_validator from './user_validator'
+import * as task_validator from './task_validator';
 
 export {
-      header,
-      admin_validator,
-      user_validator
+      task_validator
 }

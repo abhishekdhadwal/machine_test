@@ -27,7 +27,7 @@ const init = async () => {
       await server.start();
       console.log(`Server running on ${server.info.uri}/documentation`);
       await connect_to_db();
-      // await bootstrap_data();
+      await bootstrap_data();
 
 };
 
